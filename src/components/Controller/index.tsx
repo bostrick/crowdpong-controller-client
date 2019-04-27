@@ -17,6 +17,16 @@ export class ControlPanel extends React.Component<{controller? : IGameController
     this.props.controller.do_down().then();
   }
 
+  do_faster = () => {
+    console.log("faster");
+    this.props.controller.do_faster().then();
+  }
+
+  do_slower = () => {
+    console.log("slower");
+    this.props.controller.do_slower().then();
+  }
+
   render() {
 
     const c = this.props.controller;
@@ -31,10 +41,14 @@ export class ControlPanel extends React.Component<{controller? : IGameController
         <figure className="d-block figure">
           <img className="button w-100 img-fluid rounded-circle" 
             src={up_img} onClick={this.do_up}/>
+          <img className="button w-100 img-fluid rounded-circle" 
+            src="img/rabbit_button.png" onClick={this.do_faster}/>
         </figure>
         <figure className="d-block figure">
           <img className="button w-100 img-fluid rounded-circle" 
             src={down_img} onClick={this.do_down}/>
+          <img className="button w-100 img-fluid rounded-circle" 
+            src="img/turtle_button.png" onClick={this.do_slower}/>
         </figure>
     </div>;
   }

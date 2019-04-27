@@ -6,6 +6,8 @@ export interface IGameController {
     team: string;
     do_up(): any;
     do_down(): any;
+    do_faster(): any;
+    do_slower(): any;
 }
 
 export class GameController {
@@ -39,6 +41,16 @@ export class GameController {
 
     do_down() {
         return axios.post(this.url, {'command': 'down'})
+            .then((resp) => console.log(resp.data.team));
+    }
+
+    do_faster() {
+        return axios.post(this.url, {'command': 'faster'})
+            .then((resp) => console.log(resp.data.team));
+    }
+
+    do_slower() {
+        return axios.post(this.url, {'command': 'slower'})
             .then((resp) => console.log(resp.data.team));
     }
 }
