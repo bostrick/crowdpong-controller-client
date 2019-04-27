@@ -7,7 +7,8 @@ import { ControlPanel } from "./components/Controller";
 import "./style.css";
 
 
-const c = new GameController("http://localhost:6543");
+let w = window as any;
+const c = new GameController(w.crowdpong_globals.api_base);
 const App = () => (
     <ControlPanel controller={c}/>
 )
