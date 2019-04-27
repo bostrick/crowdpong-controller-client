@@ -25,8 +25,10 @@ export class GameController {
     get_team() {
         return axios.get(this.url).then((resp) => {
             console.log(resp);
-            console.log(`joining team ${resp.data.team}`);
-            this.team = resp.data.team;
+            if (!this.team) {
+                console.log(`joining team ${resp.data.team}`);
+                this.team = resp.data.team;
+            }
         });
     }
 
